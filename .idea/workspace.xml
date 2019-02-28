@@ -11,6 +11,9 @@
   <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="PhpWorkspaceProjectConfiguration">
     <include_path>
       <path value="$PROJECT_DIR$/vendor/egulias/email-validator" />
@@ -115,11 +118,12 @@
       <path value="$PROJECT_DIR$/vendor/ocramius/proxy-manager" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="1">
     <option name="x" value="-7" />
     <option name="width" value="974" />
     <option name="height" value="1047" />
   </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
@@ -171,12 +175,12 @@
       <option name="presentableId" value="Default" />
       <updated>1551366496242</updated>
       <workItem from="1551366497408" duration="72000" />
-      <workItem from="1551366647637" duration="50000" />
+      <workItem from="1551366647637" duration="648000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="122000" />
+    <option name="totallyTimeSpent" value="720000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="0" width="974" height="1047" extended-state="0" />
