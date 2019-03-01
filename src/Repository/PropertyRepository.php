@@ -19,6 +19,24 @@ class PropertyRepository extends ServiceEntityRepository
         parent::__construct($registry, Property::class);
     }
 
+    public function findBetween($min, $max){
+        $qb = $this->createQueryBuilder('p')
+            ->andWhere('p.price => :price')
+            ->setParameter('price', $min)
+            ->andWhere('p.price <= :price')
+            ->setParameter('price', $max)
+            ->orderBy('p.price', 'ASC')
+            ->getQuery();
+        return $qb->execute();
+    }
+    public function findLatest(){
+        $qb = $this->createQueryBuilder('p')
+            ->setMaxResults(1)
+            ->orderBy('p.id', 'ASC')
+            ->getQuery();
+        return $qb->execute();
+    }
+
     // /**
     //  * @return Property[] Returns an array of Property objects
     //  */
