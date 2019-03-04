@@ -121,4 +121,13 @@ class DAOImpl implements DAOInterface
 
         return $this->propertyRepository->delete($property);
     }
+
+    /**
+     * @param $areaMin
+     * @return array
+     */
+    public function findByMinArea($areaMin): array
+    {
+        return $this->propertyRepository->findByMinArea($areaMin);
+    }
 }

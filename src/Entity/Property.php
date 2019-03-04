@@ -90,6 +90,11 @@ class Property
         return $this->price;
     }
 
+    public function getNumberFormat($number): String
+    {
+        return number_format($number, 0, '', ' ');
+    }
+
     public function setPrice(int $price): self
     {
         $this->price = $price;

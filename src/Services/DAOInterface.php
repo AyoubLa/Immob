@@ -68,4 +68,10 @@ interface DAOInterface {
      */
     public function deleteProperty($property);
 
+    /**
+     * @param $areaMin
+     * @return mixed
+     */
+    public function findByMinArea($areaMin);
+
 }

@@ -9,8 +9,12 @@
 namespace App\Controller;
 
 
+use App\Entity\PropertySearch;
+use App\Form\PropertySearchType;
 use App\Repository\PropertyRepository;
+use App\Services\DAOInterface;
 use Doctrine\Common\Persistence\ObjectManager;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -33,15 +37,11 @@ class PropertyController extends AbstractController
     }
 
     /**
-     * @Route("/property", name="property.index")
-     * @return Response
-     * @throws \Twig_Error_Loader
-     * @throws \Twig_Error_Runtime
-     * @throws \Twig_Error_Syntax
+     * @Route("/index", name="property.index")
      */
-    public function index(): Response
+    public function index(DAOInterface $repository ,Request $request): Response
     {
-        return $this->render('property/index.html.twig', ['current_page' => 'property']);
+        return $this->render('index.html.twig');
     }
 
     /**

@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    Immob Agency
+{% endblock %}
+{% block body %}
+    <div class="jumbotron text-center">
+        <div class="container">
+            {{ form_start(form) }}
+            {{ form_widget(form) }}
+            <button class="btn btn-primary" type="submit">Chercher</button>
+            {{ form_end(form) }}
+        </div>
+    </div>
+    <div class="container">
+        <h2 class="text-center">Découvrir tous nos biens</h2>
+        <div class="row flex">
+            {% for property in properties %}
+                <div class="col-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                <a href="#">{{ property.getTitle }}</a>
+                            </h5>
+                            <p class="card-text">Surface : {{ property.Area }} Etage : ({{ property.Floor }})</p>
+                            <div class="text-primary">Prix : {{ property.getNumberFormat(property. getPrice()) }}</div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
