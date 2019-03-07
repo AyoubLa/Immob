@@ -2,22 +2,31 @@
 
 namespace App\Controller\Front;
 
-use App\Services\DAOInterface;
+use App\Services\DAOImpl;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\PropertySearch;
 use App\Form\PropertySearchType;
 
-class GaleryController extends AbstractController
+class GalleryController extends AbstractController
 {
     /**
-     * @Route("/galery", name="galery.index")
-     * @param DAOInterface $repository
+     * @var DAOImpl
+     */
+    private $repository;
+
+    public function __construct($repository)
+    {
+        $this->repository = $repository;
+    }
+
+    /**
+     * @Route('/gallery', name="gallery.index')
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function index(DAOInterface $repository, Request $request)
+    public function index(Request $request)
     {
         $search = new PropertySearch();
 
@@ -28,11 +37,11 @@ class GaleryController extends AbstractController
         //var_dump($search->getMinArea());
         if ($form->isSubmitted() AND $form->isValid()) {
 
-            $properties = $repository->findByMinArea($search->getMinArea());
+            $properties = $this->repository->findByMinArea($search->getMinArea());
 
         }else{
 
-            $properties = $repository->findPropertyAll();
+            $properties = $this->repository->findPropertyAll();
         }
 
         return $this->render('front/index.html.twig', [

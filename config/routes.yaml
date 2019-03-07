@@ -1,3 +1,6 @@
 #index:
 #    path: /
 #    controller: App\Controller\DefaultController::index
+gallery.index:
+  path: /gallery
+  controller: App\Controller\Front\GalleryController::index
