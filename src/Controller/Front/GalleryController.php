@@ -22,7 +22,7 @@ class GalleryController extends AbstractController
     }
 
     /**
-     * @Route('/gallery', name="gallery.index')
+     * @Route("/gallery", name="gallery.index")
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\Response
      */
@@ -41,11 +41,11 @@ class GalleryController extends AbstractController
 
         }else{
 
-            $properties = $this->repository->findPropertyAll();
+            $properties = $this->repository->findAll();
         }
 
         return $this->render('front/index.html.twig', [
-            'current_page' => 'galery',
+            'current_page' => 'gallery',
             'form' => $form->createView(),
             'properties' => $properties
         ]);

@@ -1,16 +1,7 @@
 <?php
-/**
- * Created by IntelliJ IDEA.
- * User: SQLI
- * Date: 27/02/2019
- * Time: 13:48
- */
 
 namespace App\Controller;
 
-
-use App\Entity\PropertySearch;
-use App\Form\PropertySearchType;
 use App\Repository\PropertyRepository;
 use App\Services\DAOInterface;
 use Doctrine\Common\Persistence\ObjectManager;
@@ -37,11 +28,11 @@ class PropertyController extends AbstractController
     }
 
     /**
-     * @Route("/index", name="property.index")
+     * @Route("/", name="property.index")
      */
     public function index(DAOInterface $repository ,Request $request): Response
     {
-        return $this->render('index.html.twig');
+        return $this->render('index');
     }
 
     /**

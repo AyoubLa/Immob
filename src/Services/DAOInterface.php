@@ -6,67 +6,67 @@ interface DAOInterface {
     /**
      * @return mixed
      */
-    public function findPropertyAll();
+    public function findAll();
 
     /**
      * @return mixed
      */
-    public function findPropertyLatest();
+    public function findLatest();
 
     /**
      * @param $title
      * @return mixed
      */
-    public function findPropertyByTitle($title);
+    public function findByTitle($title);
 
     /**
      * @param $minPrice
      * @param $maxPrice
      * @return mixed
      */
-    public function findPropertyByPriceRange($minPrice, $maxPrice);
+    public function findByPriceRange($minPrice, $maxPrice);
 
     /**
      * @param $description
      * @return mixed
      */
-    public function findPropertyByDescription($description);
+    public function findByDescription($description);
 
     /**
      * @param $id
      * @return mixed
      */
-    public function findPropertyById($id);
+    public function findById($id);
 
     /**
      * @param $area
      * @return mixed
      */
-    public function findPropertyByArea($area);
+    public function findByArea($area);
 
     /**
      * @param $floor
      * @return mixed
      */
-    public function findPropertyByFloor($floor);
+    public function findByFloor($floor);
 
     /**
      * @param $property
      * @return mixed
      */
-    public function addProperty($property);
+    public function add($property);
 
     /**
      * @param $property
      * @return mixed
      */
-    public function updateProperty($property);
+    public function update($property);
 
     /**
      * @param $property
      * @return mixed
      */
-    public function deleteProperty($property);
+    public function delete($property);
 
     /**
      * @param $areaMin
