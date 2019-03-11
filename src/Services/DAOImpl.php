@@ -18,7 +18,7 @@ class DAOImpl implements DAOInterface
     /**
      * @return array
      */
-    public function findPropertyAll(): array
+    public function findAll(): array
     {
 
         return $this->propertyRepository->findAll();
@@ -27,7 +27,7 @@ class DAOImpl implements DAOInterface
     /**
      * @return Property
      */
-    public function findPropertyLatest(): Property{
+    public function findLatest(): Property{
 
         return $this->propertyRepository->findLatest();
     }
@@ -36,7 +36,7 @@ class DAOImpl implements DAOInterface
      * @param $title
      * @return array
      */
-    public function findPropertyByTitle($title): array
+    public function findByTitle($title): array
     {
 
         return $this->propertyRepository->findBy(['title' => $title]);
@@ -47,7 +47,7 @@ class DAOImpl implements DAOInterface
      * @param $maxPrice
      * @return mixed
      */
-    public function findPropertyByPriceRange($minPrice, $maxPrice)
+    public function findByPriceRange($minPrice, $maxPrice)
     {
 
         return $this->propertyRepository->findBetween($minPrice, $maxPrice);
@@ -57,7 +57,7 @@ class DAOImpl implements DAOInterface
      * @param $description
      * @return Property[]
      */
-    public function findPropertyByDescription($description)
+    public function findByDescription($description)
     {
 
         return $this->propertyRepository->findBy(['description' => "%".$description."%"]);
@@ -67,7 +67,7 @@ class DAOImpl implements DAOInterface
      * @param $id
      * @return Property[]
      */
-    public function findPropertyById($id)
+    public function findById($id)
     {
 
         return $this->propertyRepository->findBy(['id' => $id]);
@@ -77,7 +77,7 @@ class DAOImpl implements DAOInterface
      * @param $area
      * @return Property[]
      */
-    public function findPropertyByArea($area)
+    public function findByArea($area)
     {
 
         return $this->propertyRepository->findBy(['area' => $area]);
@@ -87,7 +87,7 @@ class DAOImpl implements DAOInterface
      * @param $floor
      * @return Property[]
      */
-    public function findPropertyByFloor($floor)
+    public function findByFloor($floor)
     {
 
         return $this->propertyRepository->findBy(['floor' => $floor]);
@@ -97,7 +97,7 @@ class DAOImpl implements DAOInterface
      * @param $property
      * @return mixed
      */
-    public function addProperty($property)
+    public function add($property)
     {
 
         return $this->propertyRepository->save($property);
@@ -107,7 +107,7 @@ class DAOImpl implements DAOInterface
      * @param $property
      * @return mixed
      */
-    public function updateProperty($property)
+    public function update($property)
     {
 
         return $this->propertyRepository->save($property);
@@ -117,7 +117,7 @@ class DAOImpl implements DAOInterface
      * @param $property
      * @return mixed
      */
-    public function deleteProperty($property){
+    public function delete($property){
 
         return $this->propertyRepository->delete($property);
     }

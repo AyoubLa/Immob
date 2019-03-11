@@ -1,1 +1,35 @@
-{% extends 'base' %}
+{% extends 'base.html.twig' %}
+
+{% block title 'Liste des bien' %}
+
+{% block body %}
+
+    <div class="jumbotron">
+        <div class="container">
+            <h1>Immo Agence</h1>
+            <p>
+                Notre site Web vous permet de rechercher des listes de propriétés et comprend
+                un grand inventaire de villas de luxe qui correspondent à vos choix
+                de style de vie tels que le front de mer, le golf, les vacances,
+                la montagne et bien d'autres.
+            </p>
+        </div>
+    </div>
+    <div class="container">
+        <h2 class="text-center">Les dérnier biens</h2>
+        <div class="row flex">
+            {% for property in properties %}
+            <div class="col-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">
+                        </h5>
+                        <p class="card-text">{{ property.title }}</p>
+                        <div class="text-primary"><strong>{{ property.price }} Dhs</strong></div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

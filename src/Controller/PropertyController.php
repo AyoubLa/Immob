@@ -5,7 +5,6 @@ namespace App\Controller;
 use App\Repository\PropertyRepository;
 use App\Services\DAOInterface;
 use Doctrine\Common\Persistence\ObjectManager;
-use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -20,7 +19,7 @@ class PropertyController extends AbstractController
 
     private $em;
 
-    public function __construct(PropertyRepository $repository, ObjectManager $em)
+    public function __construct(DAOInterface $repository, ObjectManager $em)
     {
         $this->repository = $repository;
 
@@ -30,9 +29,12 @@ class PropertyController extends AbstractController
     /**
      * @Route("/", name="property.index")
      */
-    public function index(DAOInterface $repository ,Request $request): Response
+    public function index(): Response
     {
-        return $this->render('index');
+        $properties = $this->repository->findAll();
+
+        return $this->render('index.html.twig', [
+            "properties" => $properties]);
     }
 
     /**
