@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Cocur\Slugify\Slugify;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\PropertyRepository")
@@ -160,5 +161,10 @@ class Property
         $this->filename = $filename;
 
         return $this;
+    }
+
+    public function getSlug(): String
+    {
+        return (new Slugify())->slugify($this->getTitle());
     }
 }

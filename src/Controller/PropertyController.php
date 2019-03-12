@@ -54,7 +54,7 @@ class PropertyController extends AbstractController
                 'slug' => $_slug
             ], 301);
         }
-        return $this->render('property/show.html.twig', [
+        return $this->render('front/property/show.html.twig', [
             'current_page' => 'property',
             'slug' => $slug,
             'property' => $property

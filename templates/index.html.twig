@@ -6,7 +6,7 @@
 
     <div class="jumbotron">
         <div class="container">
-            <h1>Immo Agence</h1>
+            <h1 class="text-center"><a href="{{ path('property.index') }}">Immo Agence</a></h1>
             <p>
                 Notre site Web vous permet de rechercher des listes de propriétés et comprend
                 un grand inventaire de villas de luxe qui correspondent à vos choix
@@ -23,13 +23,17 @@
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title">
+                            <a class="" href="{{ path('property.show', {id: property.id, slug: property.slug }) }}">{{ property.title }}</a>
                         </h5>
-                        <p class="card-text">{{ property.title }}</p>
+                        <p class="card-text">{{ property.description }}</p>
                         <div class="text-primary"><strong>{{ property.price }} Dhs</strong></div>
                     </div>
                 </div>
             </div>
             {% endfor %}
+        </div>
+        <div class="text-center text-primary mt-2">
+            <a href="{{ path('gallery.index') }}">Gallerie -></a>
         </div>
     </div>
 {% endblock %}
