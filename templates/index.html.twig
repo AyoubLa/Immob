@@ -19,8 +19,9 @@
         <h2 class="text-center">Les dérnier biens</h2>
         <div class="row flex">
             {% for property in properties %}
-            <div class="col-3">
+            <div class="col-4 mb-4">
                 <div class="card">
+                    <img class="card-img-top" src="{{ property.filename }}" alt="Card image cap">
                     <div class="card-body">
                         <h5 class="card-title">
                             <a class="" href="{{ path('property.show', {id: property.id, slug: property.slug }) }}">{{ property.title }}</a>
