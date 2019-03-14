@@ -4,9 +4,12 @@ namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Cocur\Slugify\Slugify;
+use Symfony\Component\HttpFoundation\File\File;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\PropertyRepository")
+ * @Vich\Uploadable
  */
 class Property
 {
@@ -14,8 +17,15 @@ class Property
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
+     *
      */
     private $id;
+
+    /**
+     * @var File
+     * @Vich\UploadableField(mapping="property_image", fileNameProperty="filename")
+     */
+    private $imageFile;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -53,6 +63,7 @@ class Property
     private $floor;
 
     /**
+     * @var string|null
      * @ORM\Column(type="string", length=255)
      */
     private $filename;
@@ -154,6 +165,24 @@ class Property
     public function getFilename(): ?string
     {
         return $this->filename;
+    }
+
+    /**
+     * @return File
+     */
+    public function getImageFile(): File
+    {
+        return $this->imageFile;
+    }
+
+    /**
+     * @param File $imageFile
+     * @return Property
+     */
+    public function setImageFile(File $imageFile): Property
+    {
+        $this->imageFile = $imageFile;
+        return $this;
     }
 
     public function setFilename(string $filename): self
